@@ -44,10 +44,10 @@ describe("Markup Calculator", function () {
     });
 
     it("books and 4 people: it should only apply a 4.8% person markup on basePrice + flat markup", function () {
-    job.basePrice = "$12456.95";
-    job.people = "4 people";
-    job.material = "books";
-    expect(calculator.getFinalCost(job)).toEqual("$13707.63");
+      job.basePrice = "$12456.95";
+      job.people = "4 people";
+      job.material = "books";
+      expect(calculator.getFinalCost(job)).toEqual("$13707.63");
     });
 
   });
@@ -78,17 +78,17 @@ describe("Markup Calculator", function () {
   describe("getFinalCost(), assuming we have to deal with people working and special materials", function (){
 
     it("food and 3 people: should apply 13% markup for the food and 3.6% markup for the people on basePrice + flat markup", function () {
-    job.basePrice = "$1299.99";
-    job.people = "3 people";
-    job.material = "food";
-    expect(calculator.getFinalCost(job)).toEqual("$1591.58");
+      job.basePrice = "$1299.99";
+      job.people = "3 people";
+      job.material = "food";
+      expect(calculator.getFinalCost(job)).toEqual("$1591.58");
     });
 
     it("drugs and 1 person: should apply 7.5% markup for the drugs and 1.2% markup for the people on basePrice + flat markup", function () {
-    job.basePrice = "$5432.00";
-    job.people = "1 person";
-    job.material = "drugs";
-    expect(calculator.getFinalCost(job)).toEqual("$6199.81");
+      job.basePrice = "$5432.00";
+      job.people = "1 person";
+      job.material = "drugs";
+      expect(calculator.getFinalCost(job)).toEqual("$6199.81");
     });
   });
 });
