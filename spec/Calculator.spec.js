@@ -12,6 +12,10 @@ describe("Markup Calculator", function () {
 
   describe("getFinalCost(), assuming we have no people and no special materials (flat markup)", function () {
 
+    it("should return $0.00 if the base price is $0.00", function () {
+      expect(calculator.getFinalCost(job)).toEqual("$0.00");
+    });
+
     it("should apply a 5% markup on the base price of $1.00", function () {
       job.basePrice = "$1.00";
       expect(calculator.getFinalCost(job)).toEqual("$1.05");

@@ -15,6 +15,10 @@
   Calculator.prototype.getFinalCost = function (job) {
     var finalCost, parsedJob;
 
+    if (job.basePrice === "$0.00") {
+      return job.basePrice;
+    }
+
     this._subTotal = 0.00;
     this._peopleMarkup = 0.00;
     this._materialMarkup = 0.00;
