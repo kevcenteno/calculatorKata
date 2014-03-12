@@ -15,7 +15,9 @@
   Calculator.prototype.getFinalCost = function (job) {
     var finalCost, parsedJob;
 
-    this._initCalculationStorage();
+    this._subTotal = 0.00;
+    this._peopleMarkup = 0.00;
+    this._materialMarkup = 0.00;
 
     parsedJob = this._parseJob(job);
 
@@ -68,12 +70,6 @@
     };
 
     return parsedJob;
-  };
-
-  Calculator.prototype._initCalculationStorage = function () {
-    this._subTotal = 0.00;
-    this._peopleMarkup = 0.00;
-    this._materialMarkup = 0.00;
   };
 
   window.Calculator = Calculator;
