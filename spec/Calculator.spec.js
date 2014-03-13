@@ -1,7 +1,18 @@
 describe("Markup Calculator", function () {
-  var job, calculator;
+  var job, calculator, markupValues;
 
-  calculator = new Calculator();
+  markupValues = {
+    flat : 0.05,
+    person : 0.012,
+    material : {
+      "drugs" : 0.075,
+      "food" : 0.13,
+      "electronics" : 0.02
+    }
+  }
+
+  calculator = new Calculator(markupValues);
+
   beforeEach(function () {
     job = {
         basePrice : "$0.00",

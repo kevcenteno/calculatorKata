@@ -2,15 +2,24 @@
 
   "use strict";
 
-  function Calculator() {
-    this.flatMarkup = 0.05;
-    this.personMarkup = 0.012;
-    this.materialMarkup = {
-      "drugs" : 0.075,
-      "food" : 0.13,
-      "electronics" : 0.02
+  function Calculator(markupValues) {
+    var i;
+
+    this.markup = {
+      flat : 0.05,
+      person : 0.012,
+      material : {
+        "drugs" : 0.075,
+        "food" : 0.13,
+        "electronics" : 0.02
+      }
     };
- }
+
+    for (i in markupValues) {
+      this.markup[i] = markupValues[i];
+    }
+
+  }
 
   Calculator.prototype.getFinalCost = function (job) {
     var finalCost, parsedJob;
@@ -37,7 +46,7 @@
   Calculator.prototype._applyFlatMarkup = function (basePrice) {
     var markedUpPrice;
 
-    markedUpPrice = basePrice * (1 + this.flatMarkup);
+    markedUpPrice = basePrice * (1 + this.markup.flat);
 
     this._subTotal = markedUpPrice;
   };
@@ -45,7 +54,7 @@
   Calculator.prototype._applyPeopleMarkup = function (people) {
     var markupPercentageTotal;
 
-    markupPercentageTotal = this.personMarkup * people;
+    markupPercentageTotal = this.markup.person * people;
 
     this._peopleMarkup = this._subTotal * markupPercentageTotal;
   };
@@ -53,9 +62,9 @@
   Calculator.prototype._applyMaterialMarkup = function (material) {
     var markupPercentage;
 
-    if (!(material in this.materialMarkup)) return;
+    if (!(material in this.markup.material)) return;
 
-    markupPercentage = this.materialMarkup[material];
+    markupPercentage = this.markup.material[material];
 
     this._materialMarkup = this._subTotal * markupPercentage;
   };
