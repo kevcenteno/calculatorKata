@@ -13,13 +13,13 @@
         "food" : 0.13,
         "electronics" : 0.02
       }
-    }
+    };
 
     for (i in markupValues) {
-      this.markup[i] = markupValues[i]
+      this.markup[i] = markupValues[i];
     }
 
-  };
+  }
 
   Calculator.prototype.getFinalCost = function (job) {
     var finalCost, parsedJob;
